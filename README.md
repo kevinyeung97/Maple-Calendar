@@ -3,8 +3,7 @@ For more detailed information and explanations about functionality, please refer
 If you intend on running it, you must run it through a server. I used Apache Tomcat, but it should work on any other server of your choice. Also, the application is meant to be run at 1440x1028 resolution on the browser. 
 
 <h2> tl;dr </h2>
-This calendar web application utilizes the Google Calendar API to retrieve calendar information after logging in. Simple user data and that user’s events will be locally stored in a backend SQL database. The SQL script is provided so that users can create the database and populate it on sign in. Utilizing the database will be necessary to take advantage of all the functionality of this calendar application, but most core functionalities will still work with only one user signed in.  
-
-Every time a user logs into the calendar app, the user’s information will be stored in the database if it’s not already there. 
+Maple Calendar adds some unique social networking functionalities to a typical calendar application. Not only are you able to see all upcoming events in a clean format, but you can also see other user's events based on following/unfollowing relationships. This application utilizes the Google Calendar API to retrieve basic profile and event information, as well as make changes to the Google Calendar by adding new events.
+ 
 
 NOTE: ALL USER INFORMATION IS ONLY STORED LOCALLY IN THE SQL DATABASE. NO USER INFORMATION IS BEING COLLECTED.
