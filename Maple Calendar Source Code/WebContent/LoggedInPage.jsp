@@ -46,7 +46,6 @@
 		
 									<script>
 										var tempEmail2 = sessionStorage.getItem("currentlySignedInUserEmail");
-										console.log("signIn -> logIn session currEmail: " + tempEmail2);
 									</script>
 		
 		

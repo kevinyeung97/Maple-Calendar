@@ -50,10 +50,7 @@
 		String namesJSONString = (String)request.getSession().getAttribute("namesJSONString");
 		String imagesJSONString = (String)request.getSession().getAttribute("imagesJSONString");
 		String emailsJSONString = (String)request.getSession().getAttribute("emailsJSONString");
-		
-										System.out.println("namesJSON: " + namesJSONString);
-										System.out.println("imagesJSON: " + imagesJSONString);
-										System.out.println("emailsJSON: " + emailsJSONString);
+
 		
 		for(int i = 0; i < retrievedNames.size(); i++){
 		%>
@@ -76,18 +73,11 @@
 			
 			var tempEmailString = "";
 			tempEmailString = "<%=emailsJSONString%>"
-			
-								console.log("tempNameString: " + tempNameString);
-								console.log("tempImageString: " + tempImageString);
-								console.log("tempEmailString: " + tempEmailString);
+
 								
 			var namesArray = tempNameString.split(",");
 			var imagesArray = tempImageString.split(",");
 			var emailsArray = tempEmailString.split(",");
-			
-								console.log("namesArray: " + namesArray);
-								console.log("imagesArray: " + imagesArray);
-								console.log("emailsArray: " + emailsArray);
 		</script>
 				
 				
@@ -98,35 +88,11 @@
 				var clickedImageURL = imagesArray[id];
 				var clickedEmail = emailsArray[id];
 				
-								console.log("searchResultsclickedName: " + clickedName);
-								console.log("searchResultsclickedURL: " + clickedImageURL);
-								console.log("searchResultsclickedEmail: " + clickedEmail);
-								
-								
-/*  				sessionStorage.setItem("clickedName", clickedName);
-				sessionStorage.setItem("clickedImageURL", clickedImageURL);
-				sessionStorage.setItem("clickedEmail", clickedEmail);
-				
-								var temp1 = sessionStorage.getItem("clickedName");
-								var temp2 = sessionStorage.getItem("clickedImageURL")
-								var temp3 = sessionStorage.getItem("clickedEmail")
-				
-								console.log("session clickedName: " + temp1);
-								console.log("session clickedImageURL: " + temp2);
-								console.log("session clickedEmail: " + temp3);
-				
-				var currUser = sessionStorage.getItem("currentlySignedInUser")
-								console.log("currUser: " + currUser);
-								
-				window.location.href = "friendsProfilePage.jsp" */
 								
 				var currUserEmail = sessionStorage.getItem("currentlySignedInUserEmail");
 				var currUserName = sessionStorage.getItem("currentlySignedInUserName");
 				var currUserImage = sessionStorage.getItem("currentlySignedInUserImage");
 				
-										console.log("sRP.jsp currUserEmail: " + currUserEmail);
-										console.log("sRP.jsp currUserName: " + currUserName);
-										console.log("sRP.jsp currUserImage: " + currUserImage);
 				
   				var requeststr = "friendPage?";
 				requeststr += "clickedName=" + clickedName;

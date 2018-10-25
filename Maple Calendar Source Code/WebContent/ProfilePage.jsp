@@ -119,8 +119,6 @@
           
 			var i;
 			for(i = 0; i < events.length; i++){
-
-				console.log(events[i]["start"]["dateTime"]);
 				
 				var dateTime = events[i]['start']['dateTime'];
 				
@@ -166,7 +164,6 @@
 				var day = dateTime.slice(8,10);
 				var finishedDate = month + ' ' + day + ', ' + year;
 				
-									console.log("finishedDate: " + finishedDate);
 				
 				
 				var time = dateTime.slice(11,16);
@@ -223,7 +220,6 @@
 				if(hour == '00'){
 					time = time.replace('00', '12');
 				}
-										console.log('time: ' + time);
 				
 				
 

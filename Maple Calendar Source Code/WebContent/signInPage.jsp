@@ -49,14 +49,6 @@
 				sessionStorage.setItem("currentlySignedInUserName", profile.getName());
 				sessionStorage.setItem("currentlySignedInUserImage", profile.getImageUrl());
 				
-										
-										var tempEmail = sessionStorage.getItem("currentlySignedInUserEmail");
-										console.log('signInPage currEmail ' + tempEmail);
-				
-						 				console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-										console.log('Name: ' + profile.getName());
-										console.log('Image URL: ' + profile.getImageUrl());
-										console.log('Email: ' + profile.getEmail());
 				
 				var requeststr = "LoginServlet?";
 				requeststr += "id=" + profile.getId();
@@ -78,7 +70,6 @@
 				requeststr2 += "&email=" + profile.getEmail();
 				requeststr2 += "&imageURL=" + profile.getImageUrl();
 				
-											console.log("finish creating requeststr2: " + requeststr2);
 
 				return true;				
 		
@@ -196,8 +187,6 @@
 				var requeststr3 = '';
 				requeststr3 += requeststr2;
 				requeststr3 += ' ';
-		
-					console.log("requeststr3: " + requeststr3);
 								
 				for(var i = 0; i < events0.length; i++){
 					var event0 = events[i];
@@ -207,8 +196,6 @@
 				}
 				
 				requeststr3 += "&numEvents=" + events0.length;
-				
-										console.log("requeststr3: " + requeststr3);
 				
 				
 				var xhttp3 = new XMLHttpRequest();

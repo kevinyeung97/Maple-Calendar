@@ -100,8 +100,7 @@
  		<script>
 			function loadEvents(){
 				if(isFollowing == "true"){	//signed in user is originally following clicked name
-											console.log("loadEvents function, inside if isF = tru, make follow button Unfollow");
-				
+					
 					//remove table F
 					//display red text F
 					//update Database F
@@ -151,7 +150,6 @@
 				}
 				
 				else if(isFollowing == "false"){ //signed in user is originally NOT following clicked name
-												console.log("loadEvents function, inside elif isF = false, make follow button Follow");
 
 					//remove red text F
 					//display table F
@@ -176,24 +174,18 @@
 					String eventTimesJSONString2 = (String)request.getSession().getAttribute("sessionEventTimesJSONString");
 					
 					int numEvents2 = (Integer)request.getSession().getAttribute("numEvents");
-							System.out.println("numEvents: " + numEvents2);
 					%>
 					
 					var tempEventNames2 = '<%=eventNamesJSONString2%>'
 					var eventNamesArray2 = tempEventNames2.split(',');
-	/* 										console.log("fPP.jsp eventNamesArr2: " + eventNamesArray2);
 											
-											for(var k = 0; k < 5; k++){
-												console.log("eventName2 index " + k + ": " + eventNamesArray2[k]);
-											} */
 											
 					var tempEventDates2 = '<%=eventDatesJSONString2%>'
 					var eventDatesArray2 = tempEventDates2.split('|');	
-											/* console.log("fPP.jsp eventDatesArr2: " + eventDatesArray2); */
 											
+					
 					var tempEventTimes2 = '<%=eventTimesJSONString2%>'
 					var eventTimesArray2 = tempEventTimes2.split(',');	
-											/* console.log("fPP.jsp eventTimesArr2: " + eventTimesArray2); */
 											
 					<% 
 					for(int i = 0; i < numEvents2; i++){ 
@@ -301,10 +293,9 @@
 		
 		<script>			
 			var isFollowing = '<%= session.getAttribute( "servletIsFollowing" ) %>'
-							console.log("isFollowing: " + isFollowing)
+			
 			if(isFollowing == "true"){	//signed in user is following clicked name
 	
-							console.log("inside if isF = tru, make follow button Unfollow");
 				document.getElementById("followButton").innerHTML = "Unfollow";
 				
 				
@@ -321,35 +312,24 @@
 				String eventTimesJSONString = (String)request.getSession().getAttribute("sessionEventTimesJSONString");
 				
 				int numEvents = (Integer)request.getSession().getAttribute("numEvents");
-						System.out.println("numEvents: " + numEvents);
 				%>
 				
 				var tempEventNames = '<%=eventNamesJSONString%>'
 				var eventNamesArray = tempEventNames.split(',');
 				globalEventNamesArray = eventNamesArray;
-/* 										console.log("fPP.jsp eventNamesArr: " + eventNamesArray);
-										
-										for(var k = 0; k < 5; k++){
-											console.log("eventName index " + k + ": " + eventNamesArray[k]);
-										} */
 										
 				var tempEventDates = '<%=eventDatesJSONString%>'
 				var eventDatesArray = tempEventDates.split('|');	
-										console.log("fPP.jsp eventDatesArr: " + eventDatesArray);
+				
 				globalEventDatesArray = eventDatesArray;
 									
 										
 				var tempEventTimes = '<%=eventTimesJSONString%>'
 				var eventTimesArray = tempEventTimes.split(',');	
-										console.log("fPP.jsp eventTimesArr: " + eventTimesArray);
 							
 				globalEventTimesArray = eventTimesArray;
 				
-				
-										console.log("fPP.jsp globalEventNamesArr: " + globalEventNamesArray);
-										console.log("fPP.jsp globalEventDatesArray: " + globalEventDatesArray);
-										console.log("fPP.jsp globalEventTimesArray: " + globalEventTimesArray);
-										
+
 				<% 
 				for(int i = 0; i < numEvents; i++){ 
 				%>
@@ -398,13 +378,12 @@
 			}
 			
 			else if(isFollowing == "false") {
-							console.log("inside elif isF = false, make follow button Follow");
 							
 				document.getElementById("followButton").innerHTML = "Follow";
 				
 				var element = document.createElement("div");
 				element.setAttribute("id", "tableContents");
-				element.setAttribute("class", "redTableText"); ///// use this to 
+				element.setAttribute("class", "redTableText");
 				var tempName = '<%= session.getAttribute( "clickedName10" ) %>'
 				element.appendChild(document.createTextNode('Follow ' + tempName.substr(0,tempName.indexOf(' ')) + ' to view Upcoming Events'));
 				document.getElementById('DateTimeEventSum').appendChild(element);
@@ -416,7 +395,6 @@
 		
 		<script>
 			function addFriendsEvent(id) {
-												console.log("id1: " + id);
 			
 				//updates Database
 				ajaxRequest3 = new XMLHttpRequest(); 
@@ -432,14 +410,11 @@
 				var currUserEmail3 = sessionStorage.getItem('currentlySignedInUserEmail');
 				var currUserName3 = sessionStorage.getItem('currentlySignedInUserName');
 				var currUserImage3 = sessionStorage.getItem('currentlySignedInUserImage');
+				
 	
 				var clickedEventName3 = globalEventNamesArray[id];
 				var clickedEventDate3 = globalEventDatesArray[id];
 				var clickedEventTime3 = globalEventTimesArray[id];
-				
-												console.log("clickedEventName3: " + clickedEventName3);
-												console.log("clickedEventDate3: " + clickedEventDate3);
-												console.log("clickedTime3: " + clickedEventTime3);
 				
 				
 				var params3 = "clickedEventName=" + clickedEventName3 + "&clickedEventDate=" + clickedEventDate3;
@@ -452,16 +427,12 @@
 				
 			
 				
-				//addEvent to my google Calendar ///////////////////////////////
+				//addEvent to my google Calendar
 				var title = globalEventNamesArray[id];
 				var sDate = globalEventDatesArray[id]
 				var sTime = globalEventTimesArray[id];
 				
-											console.log("sDate1: " + sDate);
-											
-				
-												/* var eDate = document.createEventForm.endDate.value;
-													var eTime = document.createEventForm.endTime.value; */
+
 											
 				if(sTime.slice(-2) == "PM"){
 					var sTime2 = sTime.slice(0,2);
@@ -471,16 +442,13 @@
 					sTime2String += sTime.slice(2,5);
 					sTime2String += ":00-07:00";
 					
-													console.log("sTime2String: " + sTime2String);
 					sTime2String = "T" + sTime2String;
 					sTime2String = sTime2String.replace(/\s/g, '');
-												console.log("sTime2String: " + sTime2String);
 					if(sTime2String.indexOf(':')-2 != ':'){
 						sTime2String = sTime2String.substr(0, sTime2String.indexOf(':')-2) + ':' + sTime2String.substr(sTime2String.indexOf(':')-2, sTime2String.indexOf(':'));
 					}
 					sTime = sTime2String +"-07:00";
-													console.log("sTime: " + sTime);
-													console.log("")
+
 				}
 				else if (sTime.slice(-2) == "AM"){
 					if(sTime.indexOf(":") == 1){
@@ -489,9 +457,6 @@
 					sTime = sTime.substr(0, sTime.length-3);
 					sTime += ":00-07:00";
 					sTime = "T" + sTime;
-													
-													console.log("sTime: " + sTime);
-													console.log("")
 				}
 				
 				
@@ -536,16 +501,12 @@
 					sDateMM = '12'
 				}
 				
-											
-											console.log("sDateYR: " + sDateYR );	
-											console.log("sDateMM: " + sDateMM );	
-											console.log("sDateDD: " + sDateDD );	
+
 				sDate = sDateYR + '-' + sDateMM + '-' + sDateDD;
 											
 										
 				sDate = sDate + sTime;
-										console.log("final sDate: " + sDate);
-										console.log("event Title: " + title);
+
 				var event = {
 						  'summary': title,
 						  'start': {
@@ -562,16 +523,14 @@
 													
 													
 
-												console.log("right before adding event to calendar")
  				var request = gapi.client.calendar.events.insert({
 				  'calendarId': 'primary',
 				  'resource': event
 				}); 
-												console.log("right after adding event to calendar")
+
 
 				request.execute(function(event) {
-										alert("You are about to add your friend's event to you calendar")
-					//appendPre('Event created: ' + event.htmlLink);
+										console.log("You are about to add your friend's event to you calendar")
 				});	
 
 												
@@ -599,14 +558,12 @@
 		<script>
 			var temp = '<%= session.getAttribute("clickedName10") %>'
 			document.getElementById("ProfileName").innerHTML = temp; 
-					console.log("changed profile name to: " + temp);
 		</script>
 		
 		
 		<script>
 			var temp2 = '<%= session.getAttribute("clickedImageURL10") %>'
 			document.getElementById('profPic').src = temp2;
-							console.log("changed profile image to: " + temp2);
 		</script>
 		
 		
@@ -615,10 +572,6 @@
 			var currUserEmail = sessionStorage.getItem("currentlySignedInUserEmail")
 			var currUserName = sessionStorage.getItem("currentlySignedInUserName")
 			var currUserImage = sessionStorage.getItem("currentlySignedInUserImage")
-			
-			console.log("currUserEmail: " + currUserEmail);
-			console.log("currUserName: " + currUserName);
-			console.log("currUserImage: " + currUserImage);
 		</script>
 
 

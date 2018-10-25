@@ -98,8 +98,6 @@
 
 				if(title != "") {
 					
-					console.log("Entered if(title != null)")
-					
 	 				var request = gapi.client.calendar.events.insert({
 					  'calendarId': 'primary',
 					  'resource': event
@@ -108,15 +106,10 @@
 
 					request.execute(function(event) {
 						console.log("HELLO")
-						//appendPre('Event created: ' + event.htmlLink);
 					});	
 					
 				}
 				
-				else if (title == ""){
-					console.log("entered title == null");
-				}
-
 				
 				//adding event updates database
 				ajaxRequest3 = new XMLHttpRequest();
@@ -285,11 +278,6 @@
 	   			var namesArray = tempNames.split(",");
 	   			var imagesArray = tempImages.split(",");
 	   			var emailsArray = tempEmails.split(",");
-	   			
-			    								console.log("");
-	   											console.log("namesArray: " + namesArray);
-			    								console.log("imagesArray: " + imagesArray);
-			    								console.log("emailsArray: " + emailsArray);
 			    								
 			    
 				globalNamesArray = namesArray;
@@ -339,13 +327,12 @@
 	
 	<script>
 		function redirectPage(id) {
-											console.log("id1: " + id);
 		
-			ajaxRequest = new XMLHttpRequest(); /////////////////////////////////////
-			ajaxRequest.onreadystatechange = function() { 	
+			ajaxRequest = new XMLHttpRequest(); 
+			ajaxRequest.onreadystatechange = function() { 
+				
 				if(ajaxRequest.readyState == 4 && this.status == 200) {
-															console.log("clicked on picture in home page");
-				window.location.href = "friendsProfilePage.jsp";
+					window.location.href = "friendsProfilePage.jsp";
 				} 
 			
 			}		//end of ajax callback function
@@ -355,13 +342,10 @@
 			var currUserName2 = sessionStorage.getItem('currentlySignedInUserName');
 			var currUserImage2 = sessionStorage.getItem('currentlySignedInUserImage');
 			
+			
 			var clickedName2 = globalNamesArray[id];
 			var clickedImageURL2 = globalImagesArray[id];
 			var clickedEmail2 = globalEmailsArray[id];
-			
-											console.log("clickedName2: " + clickedName2);
-											console.log("clickedImageURL2: " + clickedImageURL2);
-											console.log("clickedEmail2: " + clickedEmail2);
 			
 			
 			var params2 = "clickedName=" + clickedName2 + "&clickedEmail=" + clickedEmail2;
