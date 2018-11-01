@@ -1,12 +1,9 @@
 For more detailed information and explanations about functionality, please refer to the Maple Calendar Description.pdf.
 
 <h2> Steps to run this application </h2>
-1) Launch SQL database with provided .sql script
-
-
-2)Run SignInPage.jsp on any server of your choice (I used Apache Tomcat)
-
-3)Change browser resolution to 1440x1028
+1) Launch SQL database with provided .sql script <br />
+2)Run SignInPage.jsp on any server of your choice (I used Apache Tomcat) <br />
+3)Change browser resolution to 1440x1028 <br />
 
 
 <h2> tl;dr </h2>
